@@ -1,9 +1,9 @@
 <% if object.errors.any? %>
-  <h3>Poor decision making.</h3>
-  <ul>
-    <% object.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-  <img class="little-pic" src="https://s-media-cache-ak0.pinimg.com/originals/9f/68/fd/9f68fdc4fb210132ddead3c14c93ee64.png" alt="mad bear">
+<div class="">
+  <h3>Poor decision making: <span><% object.errors.full_messages.each do |message| %>
+    <strong><%= message %></strong></span>
+  <% end %></span></h3>
+  <img class="little-pic img-rounded" src="https://s-media-cache-ak0.pinimg.com/originals/9f/68/fd/9f68fdc4fb210132ddead3c14c93ee64.png" alt="mad bear">
+</div>
+
 <% end %>

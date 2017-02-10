@@ -16,10 +16,10 @@ class ProductsController < ApplicationController
     @target = @new_product
 
     if @new_product.save
-      flash[:notice]="Attaboy!"
+      flash[:success]="Attaboy!"
       redirect_to products_path
     else
-      flash[:danger]="You are bad and should feel bad."
+      flash[:danger]= @new_product.errors.full_messages.first.to_s
       render :index
     end
   end
@@ -30,12 +30,14 @@ class ProductsController < ApplicationController
   end
   def update
     @edit_product = Product.find(params[:id])
+    @target = @edit_product
+
     if @edit_product.update(product_params)
       flash[:success]="Attaboy!"
       redirect_to product_path(@edit_product)
     else
-      flash[:danger]="You are bad and should feel bad."
-      render :edit
+      flash[:danger]=@edit_product.errors.full_messages.first.to_s
+      render :index
     end
   end
   def destroy
