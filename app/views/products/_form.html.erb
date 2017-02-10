@@ -1,4 +1,4 @@
-<div class="form col-sm-4">
+<div class="form col-sm-4 well">
   <%= form_for @target do |f| %>
     <div class="input-group">
       <span class="input-group-addon"><%= f.label :name %></span>
@@ -17,7 +17,6 @@
     <%= f.file_field :image %>
   </div>
   <hr>
-
-    <%= f.submit class: 'btn btn-primary'%>
+    <%= f.submit class: 'btn'%>
   <% end %>
 </div>

@@ -1,24 +1,37 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Gummy kingdom
+==========================
 
-Things you may want to cover:
+#### _A storefront for gummies_
 
-* Ruby version
+#### By _**Luke Philips**_
 
-* System dependencies
+## Description
 
-* Configuration
+Allows user to:
+* CRUD functionality
+* Create, Update and Delete only available to authenticated users
+* images are hosted in the database with PaperClip Gem
+* Authentication with Devise Gem
 
-* Database creation
+## Instructions:
 
-* Database initialization
+* clone from Github, run bundle install, serve with "rails server"
+* open on localhost:3000
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## Support and contact details
 
-* Deployment instructions
+Check my GitHub:
+* _[Luke Philips](https://github.com/lukeephilips)_
 
-* ...
+## Technologies Used
+
+_Ruby on Rails, ActiveRecord, Devise and PaperClip gems._
+
+### License
+
+*Created under an MIT license.*
+
+Copyright (c) 2017 **_Luke Philips_**

@@ -15,12 +15,91 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+ $bgDefault: #9b59b6;
+ $bgHighlight: #8e44ad;
+ $colDefault: #ecf0f1;
+ $colHover: #ecdbff;
+
 .input-group-addon{
   width: 80px;
+  background-color: $bgHighlight;
+  color: white;
 }
 .little-pic {
   height: 150px;
 }
 .product {
   height: 200px;
+  padding: 0px;
+  text-align: center;
+  margin: 2px;
+}
+a, {
+  color: maroon;
+}
+.navbar, .navbar-link, .navbar-text {
+  color: white;
+}
+.panel-heading {
+  background-color: $bgDefault;
+  color: white;
+  border: 2px solid purple;
+  a {
+    color: white;
+  }
+}
+.btn {
+  background-color: $bgDefault;
+  color: white;
+  border-color: purple;
+}
+.panel {
+  border: 1px solid purple;
+}
+.navbar {
+    color: white;
+    background-color: $bgDefault;
+    border-color: $bgHighlight;
+    .navbar-brand {
+        color: $colDefault;
+        &:hover, &:focus {
+            color: $colHover; }}
+    .navbar-nav {
+        > li {
+            > a {
+                color: $colDefault;
+                &:hover, &:focus {
+                    color: $colHover;   }}}
+        .active {
+            > a, > a:hover, > a:focus {
+                color: $colHover;
+                background-color: $bgHighlight; }}
+        .open {
+            > a, > a:hover, > a:focus {
+                color: $colHover;
+                background-color: $bgHighlight;
+                .caret {
+                    border-top-color: $colHover;
+                    border-bottom-color: $colHover; }}}
+        > .dropdown {
+            > a {
+                .caret {
+                    border-top-color: $colDefault;
+                    border-bottom-color: $colDefault; }
+                &:hover, &:focus {
+                    .caret {
+                        border-top-color: $colHover;
+                        border-bottom-color: $colHover; }}}}}
+    .navbar-toggle {
+        border-color: $bgHighlight;
+        &:hover, &:focus {
+            background-color: $bgHighlight; }
+        .icon-bar {
+            background-color: $colDefault; }}}
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: $colDefault;
+        &:hover, &:focus {
+            color: $colHover;
+            background-color: $bgHighlight; }}
 }

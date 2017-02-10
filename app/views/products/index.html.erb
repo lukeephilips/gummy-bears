@@ -1,31 +1,42 @@
-<h1>Gummy Bear Kingdom</h1>
-
 <% if @products %>
-  <h2>All Products</h2>
 <div class="row">
     <% @products.order(:price).each do |product| %>
-    <div class="col-sm-2 well product">
-      <p><%= link_to product.name, product_path(product) %></p>
-      <%= link_to image_tag(product.image.url(:thumb), class: 'img-circle'), product_path(product) %>
+    <div class="col-sm-2 panel product">
+      <div class="panel-heading">
+        <h4><%= link_to product.name, product_path(product) %></h4>
+      </div>
+      <div class="panel-body">
+        <%= link_to image_tag(product.image.url(:thumb), class: 'img-circle center-block'), product_path(product) %>
+      </div>
     </div>
     <% end  %>
 </div>
 
 <% elsif @product %>
-<div>
-  <h2><%= @product.name %></h2>
-    <p><%= @product.price %></p>
-    <p><%= @product.country %></p>
-    <%= image_tag @product.image.url(:medium) %>
-</div>
-<div class="row links">
-<% if user_signed_in? %>
-  <h3>| <%= link_to "Edit", edit_product_path(@product) %> | <%= link_to "Delete", product_path(@product),
-                      :data => {:confirm => 'For shursies?',
-                                :method => 'delete'} %> |</h3>
-<% else %>
-  <h3><em>Sign in to edit or delete products</em></h3>
-  <% end %>
+<div class="panel">
+  <div class="panel-heading">
+    <h2><%= @product.name %></h2>
+  </div>
+  <div class="panel panel-body">
+    <div class="col-sm-6">
+      <h3>Price: $<%= @product.price %></h3>
+      <h3>Sourced in: <%= @product.country %></h3>
+    </div>
+    <div class="col-sm-6">
+      <%= image_tag @product.image.url(:medium) %>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <div class="links">
+      <% if user_signed_in? %>
+      <h4>| <%= link_to "Edit", edit_product_path(@product) %> | <%= link_to "Delete", product_path(@product),
+      :data => {:confirm => 'For shursies?',
+        :method => 'delete'} %> |</h4>
+        <% else %>
+        <h4><em>Sign in to edit or delete products</em></h4>
+        <% end %>
+      </div>
+  </div>
 </div>
 <% elsif @new_product %>
 <h2>Add a Product</h2>
@@ -41,14 +52,14 @@
 <% end %>
 
 <div class="links row">
-  <h3>
+  <h3> |
     <% if user_signed_in? %>
-      | <%= link_to "Add a product", new_product_path %>
+     <%= link_to "Add a product", new_product_path %> |
     <% else %>
-      <em>Sign in to add products</em>
+      <em>Sign in to add products</em> |
     <% end %>
     <% unless @products %>
-      | <%= link_to "Back to all products", products_path %> |
+     <%= link_to "Back to all products", products_path %> |
     <% end %>
   </h3>
 
