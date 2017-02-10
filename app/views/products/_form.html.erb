@@ -12,6 +12,10 @@
       <span class="input-group-addon"><%= f.label :country %></span>
       <%= f.text_field :country, class: 'form-control' %>
     </div>
+    <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
 
     <%= f.submit class: 'btn btn-primary'%>
   <% end %>

@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
       flash[:success]="Attaboy!"
       redirect_to products_path
     else
-      flash[:danger]= @new_product.errors.full_messages.first.to_s
+      # flash[:danger]= @new_product.errors.full_messages.first.to_s
       render :index
     end
   end
@@ -36,7 +36,7 @@ class ProductsController < ApplicationController
       flash[:success]="Attaboy!"
       redirect_to product_path(@edit_product)
     else
-      flash[:danger]=@edit_product.errors.full_messages.first.to_s
+      # flash[:danger]=@edit_product.errors.full_messages.first.to_s
       render :index
     end
   end
@@ -48,6 +48,6 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:name, :price, :country)
+    params.require(:product).permit(:name, :price, :country, :image)
   end
 end
