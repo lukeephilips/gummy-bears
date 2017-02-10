@@ -1,0 +1,31 @@
+<h1>Gummy Bear Kingdom</h1>
+
+<% if @products %>
+  <h1>Products</h1>
+
+  <div>
+    <% @products.order(:price).each do |product| %>
+      <p><%= link_to product.name, product_path(product) %></p>
+    <% end  %>
+  </div>
+
+<% elsif @product %>
+<div>
+  <h1><%= @product.name %></h1>
+    <p><%= @product.price %></p>
+    <p><%= @product.country %></p>
+</div>
+<%= link_to "Back to all products", products_path %>
+
+<% elsif @new_product %>
+<div class="row">
+  <%= render 'form' %>
+</div>
+  <div class="row">
+    <%= link_to "Back to all products", products_path %>
+  </div>
+<% end %>
+
+<div class="links">
+  <%= link_to "Add a product", new_product_path %>
+</div>
