@@ -36,6 +36,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 # gem "paperclip_database", "~> 2.0"
+gem 'imagemagick-identify'
 gem 'paperclip'
 
 
