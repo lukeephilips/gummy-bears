@@ -18,11 +18,15 @@
     <p><%= @product.country %></p>
     <%= image_tag @product.image.url(:medium) %>
 </div>
-  <div class="row links">
-  <h3><%= link_to "Edit", edit_product_path(@product) %> | <%= link_to "Delete", product_path(@product),
+<div class="row links">
+<% if user_signed_in? %>
+  <h3>| <%= link_to "Edit", edit_product_path(@product) %> | <%= link_to "Delete", product_path(@product),
                       :data => {:confirm => 'For shursies?',
-                                :method => 'delete'} %></h3>
-  </div>
+                                :method => 'delete'} %> |</h3>
+<% else %>
+  <h3><em>Sign in to edit or delete products</em></h3>
+  <% end %>
+</div>
 <% elsif @new_product %>
 <h2>Add a Product</h2>
 <div class="row">
@@ -37,9 +41,14 @@
 <% end %>
 
 <div class="links row">
-  <h3><%= link_to "Add a product", new_product_path %>
+  <h3>
+    <% if user_signed_in? %>
+      | <%= link_to "Add a product", new_product_path %>
+    <% else %>
+      <em>Sign in to add products</em>
+    <% end %>
     <% unless @products %>
-    | <%= link_to "Back to all products", products_path %>
+      | <%= link_to "Back to all products", products_path %> |
     <% end %>
   </h3>
 
