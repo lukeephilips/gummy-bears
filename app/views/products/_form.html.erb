@@ -1,6 +1,5 @@
 <div class="form col-sm-4">
-  <%= render 'layouts/errors', :object => @new_product %>
-  <%= form_for @new_product do |f| %>
+  <%= form_for @target do |f| %>
     <div class="input-group">
       <span class="input-group-addon"><%= f.label :name %></span>
       <%= f.text_field :name, class: 'form-control' %>

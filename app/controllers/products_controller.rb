@@ -8,17 +8,40 @@ class ProductsController < ApplicationController
   end
   def new
     @new_product = Product.new
+    @target = @new_product
     render :index
   end
   def create
     @new_product = Product.new(product_params)
+    @target = @new_product
+
     if @new_product.save
       # flash[:notice]="Attaboy!"
-      redirect_to product_path(@new_product)
+      redirect_to products_path
     else
       # flash[:alert]="You are bad and should feel bad."
       render :new
     end
+  end
+  def edit
+    @edit_product = Product.find(params[:id])
+    @target = @edit_product
+    render :index
+  end
+  def update
+    @edit_product = Product.find(params[:id])
+    if @edit_product.update(product_params)
+      # flash[:notice]="Attaboy!"
+      redirect_to product_path(@edit_product)
+    else
+      # flash[:alert]="You are bad and should feel bad."
+      render :edit
+    end
+  end
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    redirect_to products_path
   end
 
   private
