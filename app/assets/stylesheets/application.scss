@@ -15,7 +15,12 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
-
+.input-group-addon{
+  width: 80px;
+}
 .little-pic {
   height: 150px;
+}
+.product {
+  height: 200px;
 }

@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
       flash[:success]="Attaboy!"
       redirect_to products_path
     else
-      # flash[:danger]= @new_product.errors.full_messages.first.to_s
+      flash[:danger]= @new_product.errors.full_messages.each {|m| m.to_s}.join
       render :index
     end
   end
@@ -36,7 +36,7 @@ class ProductsController < ApplicationController
       flash[:success]="Attaboy!"
       redirect_to product_path(@edit_product)
     else
-      # flash[:danger]=@edit_product.errors.full_messages.first.to_s
+      flash[:danger]=@edit_product.errors.full_messages.each {|m| m.to_s}.join
       render :index
     end
   end

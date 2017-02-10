@@ -38,6 +38,7 @@ gem 'jbuilder', '~> 2.5'
 # gem "paperclip_database", "~> 2.0"
 gem 'imagemagick-identify'
 gem 'paperclip'
+gem 'devise'
 
 
 group :development, :test do
